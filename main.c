@@ -82,8 +82,7 @@ int main(int argc, char *argv[]) {
     memcpy(outfile_name + sizeof PREFIX - 1, argv[1], argv_1_len);
     outfile_name[argv_1_len + sizeof PREFIX - 1] = 0;
 
-    outfd = open(outfile_name, O_WRONLY | O_CREAT);
-    chmod(outfile_name, stat.st_mode);
+    outfd = open(outfile_name, O_WRONLY | O_CREAT | O_TRUNC, stat.st_mode);
     assert(write(outfd, content, st_size) != -1);
 
     assert(munmap(content, st_size) != -1);
