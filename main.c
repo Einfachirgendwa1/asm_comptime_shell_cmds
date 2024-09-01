@@ -69,7 +69,8 @@ int main(int argc, char *argv[]) {
                 inbuffer.size += linebuffer_strlen;
             }
             memmove(start_abs + inbuffer.size, needle + 1, /* right */ st_size - (/* left */ (size_t)(content - needle) + 1));
-            st_size += (size_t)(start - start_abs) + inbuffer.size;
+            st_size -= len + sizeof NEEDLE;
+            st_size += inbuffer.size;
             memcpy(start_abs, inbuffer.heap_buffer, inbuffer.size);
             free(inbuffer.heap_buffer);
             free(full);
