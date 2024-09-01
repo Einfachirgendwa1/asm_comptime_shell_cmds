@@ -1,4 +1,8 @@
-Executes shell commands and embeds the output into the file
+Executes shell commands and embeds the output into the file.
+
+# Disclaimer
+
+I wrote this in like 1 hour and it's currently super bad, I'm working on it.
 
 # Example
 
