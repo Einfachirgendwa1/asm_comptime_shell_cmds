@@ -29,3 +29,13 @@ That's it.
 ```bash
 make install
 ```
+
+# Usage
+
+Running
+
+```bash
+asm_comptime_shell_cmds [file]
+```
+
+creates \_\[file\] which you can then compile.
