@@ -1,4 +1,4 @@
-%define primes_literal;;; `./main.py 100`
+%define primes_literal;;; `./example.py 100`
 %strlen strlen primes_literal
 
 section .data

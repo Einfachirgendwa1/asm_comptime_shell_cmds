@@ -1,13 +1,15 @@
-default:
-	@clang inserter.c -o inserter -fsanitize=address -g -Wall -Wextra -march=native -pipe
-	@./inserter main.asm
-	@nasm -f elf64 _main.asm -o main.o -g
-	@ld main.o -o main
-	@rm main.o
-	@./main
+build:
+	@clang main.c -o main -march=native -pipe -O2
 
-no_sanitizer:
-	@clang inserter.c -o inserter -g -Wall -Wextra -march=native -pipe
+install: build
+	@cp main /usr/bin/asm_comptime_shell_cmds
+
+example: build
+	@./main example.asm
+	@nasm -f elf64 _example.asm -o example.o
+	@ld example.o -o example
+	@rm example.o
+	@./example
 
 clean:
-	@rm -f ./main ./inserter ./_main.asm ./core ./vgcore.* ./.gdb_history
+	@rm -f main example _example.asm core vgcore.* .gdb_history
